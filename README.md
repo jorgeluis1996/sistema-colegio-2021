@@ -2,7 +2,7 @@
 Para correr el programa debemos tener la base de datos con anticipacion ya que iniciaremos sesión y los usuarios estan en la Base de datos
 
 el programa que se utilizo es   Visual Studio <a href="https://www.linkedin.com/in/jorge-muñiz-repoma-80ab3a23a/">
-<img align="left" alt="Jorge LinkedIN" width="22px" src="https://icongr.am/fontawesome/linkedin.svg?size=128&color=70c8ff](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/800px-Visual_Studio_Icon_2019.svg.png" />
+<img align="left" alt="Jorge LinkedIN" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/800px-Visual_Studio_Icon_2019.svg.png" />
 </a>
 
 Un Sistema que nos permita ver a los alumnos, profesores  inscritos y ademas visualizar las notas con un login para la seccion de profesores y administrador la cual controle absolutamente todo, con una conexion a la base de datos locales no reales usando logica en todo
