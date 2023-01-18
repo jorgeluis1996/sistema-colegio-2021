@@ -1,4 +1,6 @@
 # sistema-colegio-2021
+Para correr el programa debemos tener la base de datos con anticipacion ya que iniciaremos sesión y los usuarios estan en la Base de datos
+
 Un Sistema que nos permita ver a los alumnos, profesores  inscritos y ademas visualizar las notas con un login para la seccion de profesores y administrador la cual controle absolutamente todo, con una conexion a la base de datos locales no reales
 
 ![image](https://user-images.githubusercontent.com/84692577/213229311-8e299ada-4d9a-4dc3-88c1-fe8b7981c064.png)
