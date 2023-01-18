@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ccdc4973-2b58-454d-bf17-54598417d4b8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_Colegio/ServicioDocente/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f75c4bc4-48c1-4214-b33b-a4e82069cad1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Colegio/ServicioDocente/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6065d87b-8ea6-40a7-b83c-bf29d74ee5b5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Colegio/ServicioDocente/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b24f4f97-ce46-4375-bd44-97d25b5683ef" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Colegio/ServicioDocente/mex" />
+    <MetadataFile FileName="WCF_Colegio.xsd" MetadataType="Schema" ID="160d7bfa-2537-4693-bbb7-54214ef297be" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Colegio/ServicioDocente/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

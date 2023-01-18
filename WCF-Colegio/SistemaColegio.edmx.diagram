@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="99780fbd3eaf46a38c52e09493979065" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="BDCOLEGIOModel.ALUMNO" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.DOCENTE" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.PERMISOS" Width="1.5" PointX="17.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.ROL" Width="1.5" PointX="15" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.USUARIO" Width="1.5" PointX="17.25" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__PERMISOS__IdRol__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__USUARIO__IdRol__36B12243" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.Distrito" Width="1.5" PointX="7.375" PointY="10.875" />
+        <AssociationConnector Association="BDCOLEGIOModel.fk_distrito" />
+        <AssociationConnector Association="BDCOLEGIOModel.fk_distritoDoce" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.Notas" Width="1.5" PointX="13.5" PointY="1.75" />
+        <AssociationConnector Association="BDCOLEGIOModel.IdAlumno" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.GRADO" Width="1.5" PointX="0.75" PointY="13" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.PERIODO" Width="1.5" PointX="9.75" PointY="11.125" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK_IDPeriodo" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.NIVEL" Width="1.5" PointX="6" PointY="6.625" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.CURSO" Width="1.5" PointX="8.25" PointY="6" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__Notas__IdCurso__55BFB948" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK_IDNivel" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

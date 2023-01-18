@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IServicioExtra" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCF_Colegio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIServicioExtra_AsignarCursoDocente_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarCursoDocente" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_AsignarCursoDocente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarCursoDocenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_GetTopAlumnos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_GetTopAlumnos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopAlumnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_AsignarImagenCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarImagenCurso" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_AsignarImagenCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarImagenCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_GetAlumnosDeudores_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlumnosDeudores" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_GetAlumnosDeudores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlumnosDeudoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_LoginUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_LoginUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_ListarDistritos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDistritos" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_ListarDistritos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDistritosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIServicioExtra">
+    <wsdl:operation name="AsignarCursoDocente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/AsignarCursoDocente" message="tns:IIServicioExtra_AsignarCursoDocente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/AsignarCursoDocenteResponse" message="tns:IIServicioExtra_AsignarCursoDocente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopAlumnos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/GetTopAlumnos" message="tns:IIServicioExtra_GetTopAlumnos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/GetTopAlumnosResponse" message="tns:IIServicioExtra_GetTopAlumnos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignarImagenCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/AsignarImagenCurso" message="tns:IIServicioExtra_AsignarImagenCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/AsignarImagenCursoResponse" message="tns:IIServicioExtra_AsignarImagenCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosDeudores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/GetAlumnosDeudores" message="tns:IIServicioExtra_GetAlumnosDeudores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/GetAlumnosDeudoresResponse" message="tns:IIServicioExtra_GetAlumnosDeudores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/LoginUsuario" message="tns:IIServicioExtra_LoginUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/LoginUsuarioResponse" message="tns:IIServicioExtra_LoginUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDistritos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/ListarDistritos" message="tns:IIServicioExtra_ListarDistritos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/ListarDistritosResponse" message="tns:IIServicioExtra_ListarDistritos_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIServicioExtra" type="tns:IIServicioExtra">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AsignarCursoDocente">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/AsignarCursoDocente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopAlumnos">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/GetTopAlumnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarImagenCurso">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/AsignarImagenCurso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosDeudores">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/GetAlumnosDeudores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUsuario">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/LoginUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDistritos">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/ListarDistritos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IServicioExtra">
+    <wsdl:port name="BasicHttpBinding_IIServicioExtra" binding="tns:BasicHttpBinding_IIServicioExtra">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_Colegio/IServicioExtra/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

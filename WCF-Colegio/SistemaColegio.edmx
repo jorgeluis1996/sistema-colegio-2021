@@ -1,0 +1,2320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDCOLEGIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ALUMNO">
+          <Key>
+            <PropertyRef Name="IdAlumno" />
+          </Key>
+          <Property Name="IdAlumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValorCodigo" Type="int" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+          <Property Name="DocumentoIdentidad" Type="varchar" MaxLength="100" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Sexo" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Fec_Ult_Mod" Type="datetime" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+          <Property Name="Curso" Type="int" />
+          <Property Name="Nota" Type="int" />
+          <Property Name="idDistrito" Type="int" />
+        </EntityType>
+        <EntityType Name="CURSO">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="CODIGO" Type="varchar" MaxLength="10" />
+          <Property Name="IDNivel" Type="int" />
+        </EntityType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="idDistrito" />
+          </Key>
+          <Property Name="idDistrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DOCENTE">
+          <Key>
+            <PropertyRef Name="IdDocente" />
+          </Key>
+          <Property Name="IdDocente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValorCodigo" Type="int" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="DocumentoIdentidad" Type="varchar" MaxLength="100" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Sexo" Type="varchar" MaxLength="50" />
+          <Property Name="GradoEstudio" Type="varchar" MaxLength="100" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroTelefono" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Fec_Ult_Mod" Type="datetime" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+          <Property Name="IdCurso" Type="int" />
+          <Property Name="idDistrito" Type="int" />
+        </EntityType>
+        <EntityType Name="GRADO">
+          <Key>
+            <PropertyRef Name="IDGrado" />
+          </Key>
+          <Property Name="IDGrado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesGrado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="NIVEL">
+          <Key>
+            <PropertyRef Name="Nivel" />
+          </Key>
+          <Property Name="Nivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desNivel" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Notas">
+          <Key>
+            <PropertyRef Name="IDNota" />
+          </Key>
+          <Property Name="IDNota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nota1" Type="int" Nullable="false" />
+          <Property Name="Nota2" Type="int" Nullable="false" />
+          <Property Name="Nota3" Type="int" Nullable="false" />
+          <Property Name="Final" Type="int" Nullable="false" />
+          <Property Name="Retroalimentacion" Type="varchar" MaxLength="50" />
+          <Property Name="IdAlumno" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Usu_Docente" Type="varchar" MaxLength="20" />
+          <Property Name="IDPeriodo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERIODO">
+          <Key>
+            <PropertyRef Name="IDPeriodo" />
+          </Key>
+          <Property Name="IDPeriodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesPeriodo" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="PERMISOS">
+          <Key>
+            <PropertyRef Name="IdPermisos" />
+          </Key>
+          <Property Name="IdPermisos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRol" Type="int" />
+          <Property Name="IdSubMenu" Type="int" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="60" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+          <Property Name="IdRol" Type="int" />
+          <Property Name="LoginUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="LoginClave" Type="varchar" MaxLength="50" />
+          <Property Name="DescripcionReferencia" Type="varchar" MaxLength="50" />
+          <Property Name="IdReferencia" Type="int" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="RolUsuario" Type="int" />
+        </EntityType>
+        <Association Name="FK__ALUMNO__Curso__607251E5">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+          <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__IdCurso__6166761E">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notas__IdCurso__55BFB948">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERMISOS__IdRol__30F848ED">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
+          <End Role="PERMISOS" Type="Self.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__IdRol__36B12243">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_distrito">
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+          <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_distritoDoce">
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDNivel">
+          <End Role="NIVEL" Type="Self.NIVEL" Multiplicity="0..1" />
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIVEL">
+              <PropertyRef Name="Nivel" />
+            </Principal>
+            <Dependent Role="CURSO">
+              <PropertyRef Name="IDNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDPeriodo">
+          <End Role="PERIODO" Type="Self.PERIODO" Multiplicity="1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERIODO">
+              <PropertyRef Name="IDPeriodo" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="IDPeriodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IdAlumno">
+          <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUMNO">
+              <PropertyRef Name="IdAlumno" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="IdAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="get_notas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCurso" Type="int" Mode="In" />
+          <Parameter Name="IDAlumno" Type="int" Mode="In" />
+          <Parameter Name="IDPeriodo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="get_rol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LoginUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="LoginClave" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="get_top_alumnos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="maximo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="login_usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="clave" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="set_curso_docente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idcurso" Type="int" Mode="In" />
+          <Parameter Name="iddocente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="set_imagen_curso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="imagen" Type="image" Mode="In" />
+          <Parameter Name="idcurso" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_ActulizarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_docente" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_EliminarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="apellidos" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="apellidos" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="valorCodigo" Type="int" Mode="In" />
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="gradoEstudio" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="fechaRegistro" Type="date" Mode="In" />
+        </Function>
+        <Function Name="sp_ListarDistritos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ActualizarPermisos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Detalle" Type="xml" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_AsginarCursos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="xml" Type="xml" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_DetalleCursoNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCurso" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_DetalleDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_EditarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAlumno" Type="int" Mode="In" />
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_EditarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="usp_EditarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDocente" Type="int" Mode="In" />
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="GradoEstudio" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_EditarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="DescripcionGrado" Type="varchar" Mode="In" />
+          <Parameter Name="DescripcionSeccion" Type="varchar" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EditarNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="IdPeriodo" Type="int" Mode="In" />
+          <Parameter Name="DescripcionNivel" Type="varchar" Mode="In" />
+          <Parameter Name="DescripcionTurno" Type="varchar" Mode="In" />
+          <Parameter Name="HoraInicio" Type="time" Mode="In" />
+          <Parameter Name="HoraFin" Type="time" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EditarPeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPeriodo" Type="int" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="FechaInicio" Type="date" Mode="In" />
+          <Parameter Name="FechaFin" Type="date" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdAlumno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarCurricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCurricula" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDocenteCurso" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarHorario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdHorario" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarPeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPeriodo" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRol" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_EliminarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_ListarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarCursosAsignados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarHorario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarNivelDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarNombresDocentes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarPeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_LoginUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_ModificarRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRol" Type="int" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_ModificarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="IdRol" Type="int" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar" Mode="In" />
+          <Parameter Name="DescripcionReferencia" Type="varchar" Mode="In" />
+          <Parameter Name="IdReferencia" Type="int" Mode="In" />
+          <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_ObtenerClalificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+          <Parameter Name="IdAlumno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ObtenerCurricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+          <Parameter Name="IdDocente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ObtenerDetalleUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ObtenerMatricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ObtenerPermisos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRol" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ObtenerRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ObtenerUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_RegistrarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_RegistrarCalificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="xml" Type="xml" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarCurricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+          <Parameter Name="IdDocente" Type="int" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
+          <Parameter Name="Nivel" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_RegistrarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="GradoEstudio" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_RegistrarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+          <Parameter Name="IdDocente" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DescripcionGrado" Type="varchar" Mode="In" />
+          <Parameter Name="DescripcionSeccion" Type="varchar" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarHorario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdNivel" Type="int" Mode="In" />
+          <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
+          <Parameter Name="IdCurso" Type="int" Mode="In" />
+          <Parameter Name="DiaSemana" Type="varchar" Mode="In" />
+          <Parameter Name="HoraInicio" Type="datetime" Mode="In" />
+          <Parameter Name="HoraFin" Type="datetime" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarMatricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="xml" Type="xml" Mode="In" />
+          <Parameter Name="Resultado" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPeriodo" Type="int" Mode="In" />
+          <Parameter Name="DescripcionNivel" Type="varchar" Mode="In" />
+          <Parameter Name="DescripcionTurno" Type="varchar" Mode="In" />
+          <Parameter Name="HoraInicio" Type="time" Mode="In" />
+          <Parameter Name="HoraFin" Type="time" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarNivelDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="xml" Type="xml" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarPeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="FechaInicio" Type="date" Mode="In" />
+          <Parameter Name="FechaFin" Type="date" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="IdRol" Type="int" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar" Mode="In" />
+          <Parameter Name="DescripcionReferencia" Type="varchar" Mode="In" />
+          <Parameter Name="IdReferencia" Type="int" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_RegistrarVacantes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="xml" Type="xml" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="usp_ReporteAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ReporteMatricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoMatricula" Type="varchar" Mode="In" />
+          <Parameter Name="SituacionMatricula" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoAlumno" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Periodo" Type="varchar" Mode="In" />
+          <Parameter Name="NivelAcademico" Type="varchar" Mode="In" />
+          <Parameter Name="GradoSeccion" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="BDCOLEGIOModelStoreContainer">
+          <EntitySet Name="ALUMNO" EntityType="Self.ALUMNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCENTE" EntityType="Self.DOCENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRADO" EntityType="Self.GRADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NIVEL" EntityType="Self.NIVEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notas" EntityType="Self.Notas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERIODO" EntityType="Self.PERIODO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERMISOS" EntityType="Self.PERMISOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ALUMNO__Curso__607251E5" Association="Self.FK__ALUMNO__Curso__607251E5">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__IdCurso__6166761E" Association="Self.FK__DOCENTE__IdCurso__6166761E">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notas__IdCurso__55BFB948" Association="Self.FK__Notas__IdCurso__55BFB948">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERMISOS__IdRol__30F848ED" Association="Self.FK__PERMISOS__IdRol__30F848ED">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__IdRol__36B12243" Association="Self.FK__USUARIO__IdRol__36B12243">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_distrito" Association="Self.fk_distrito">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_distritoDoce" Association="Self.fk_distritoDoce">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDNivel" Association="Self.FK_IDNivel">
+            <End Role="NIVEL" EntitySet="NIVEL" />
+            <End Role="CURSO" EntitySet="CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDPeriodo" Association="Self.FK_IDPeriodo">
+            <End Role="PERIODO" EntitySet="PERIODO" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="IdAlumno" Association="Self.IdAlumno">
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDCOLEGIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ALUMNO">
+          <Key>
+            <PropertyRef Name="IdAlumno" />
+          </Key>
+          <Property Name="IdAlumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorCodigo" Type="Int32" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentoIdentidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="Fec_Ult_Mod" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Curso" Type="Int32" />
+          <Property Name="Nota" Type="Int32" />
+          <Property Name="idDistrito" Type="Int32" />
+          <NavigationProperty Name="Distrito" Relationship="BDCOLEGIOModel.fk_distrito" FromRole="ALUMNO" ToRole="Distrito" />
+          <NavigationProperty Name="Notas" Relationship="BDCOLEGIOModel.IdAlumno" FromRole="ALUMNO" ToRole="Notas" />
+          <NavigationProperty Name="CURSO1" Relationship="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" FromRole="ALUMNO" ToRole="CURSO" />
+        </EntityType>
+        <EntityType Name="DOCENTE">
+          <Key>
+            <PropertyRef Name="IdDocente" />
+          </Key>
+          <Property Name="IdDocente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorCodigo" Type="Int32" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentoIdentidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GradoEstudio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="Fec_Ult_Mod" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCurso" Type="Int32" />
+          <Property Name="idDistrito" Type="Int32" />
+          <NavigationProperty Name="Distrito" Relationship="BDCOLEGIOModel.fk_distritoDoce" FromRole="DOCENTE" ToRole="Distrito" />
+          <NavigationProperty Name="CURSO" Relationship="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" FromRole="DOCENTE" ToRole="CURSO" />
+        </EntityType>
+        <EntityType Name="PERMISOS">
+          <Key>
+            <PropertyRef Name="IdPermisos" />
+          </Key>
+          <Property Name="IdPermisos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRol" Type="Int32" />
+          <Property Name="IdSubMenu" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ROL" Relationship="Self.FK__PERMISOS__IdRol__30F848ED" FromRole="PERMISOS" ToRole="ROL" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PERMISOS" Relationship="Self.FK__PERMISOS__IdRol__30F848ED" FromRole="ROL" ToRole="PERMISOS" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__IdRol__36B12243" FromRole="ROL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdRol" Type="Int32" />
+          <Property Name="LoginUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoginClave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionReferencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdReferencia" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ROL" Relationship="Self.FK__USUARIO__IdRol__36B12243" FromRole="USUARIO" ToRole="ROL" />
+          <Property Name="RolUsuario" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__PERMISOS__IdRol__30F848ED">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
+          <End Role="PERMISOS" Type="Self.PERMISOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="PERMISOS">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__IdRol__36B12243">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDCOLEGIOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ALUMNO" EntityType="Self.ALUMNO" />
+          <EntitySet Name="DOCENTE" EntityType="Self.DOCENTE" />
+          <EntitySet Name="PERMISOS" EntityType="Self.PERMISOS" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK__PERMISOS__IdRol__30F848ED" Association="Self.FK__PERMISOS__IdRol__30F848ED">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="PERMISOS" EntitySet="PERMISOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__IdRol__36B12243" Association="Self.FK__USUARIO__IdRol__36B12243">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="usp_ActualizarPermisos" ReturnType="Collection(BDCOLEGIOModel.usp_ActualizarPermisos_Result)">
+            <Parameter Name="Detalle" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AsginarCursos">
+            <Parameter Name="xml" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DetalleDocenteCurso" ReturnType="Collection(String)" />
+          <FunctionImport Name="usp_EditarAlumno">
+            <Parameter Name="IdAlumno" Mode="In" Type="Int32" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EditarCurso">
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EditarDocente">
+            <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="GradoEstudio" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EditarGradoSeccion">
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="DescripcionGrado" Mode="In" Type="String" />
+            <Parameter Name="DescripcionSeccion" Mode="In" Type="String" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EditarNivel">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="IdPeriodo" Mode="In" Type="Int32" />
+            <Parameter Name="DescripcionNivel" Mode="In" Type="String" />
+            <Parameter Name="DescripcionTurno" Mode="In" Type="String" />
+            <Parameter Name="HoraInicio" Mode="In" Type="Time" />
+            <Parameter Name="HoraFin" Mode="In" Type="Time" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EditarPeriodo">
+            <Parameter Name="IdPeriodo" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarAlumno">
+          <Parameter Name="IdAlumno" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarCurricula">
+            <Parameter Name="IdCurricula" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarDocente">
+            <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarDocenteCurso">
+            <Parameter Name="IdDocenteCurso" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarGradoSeccion">
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarHorario">
+            <Parameter Name="IdHorario" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarNivel">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarPeriodo">
+            <Parameter Name="IdPeriodo" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarRol">
+            <Parameter Name="IdRol" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarUsuario">
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarAlumno" ReturnType="Collection(BDCOLEGIOModel.usp_ListarAlumno_Result)" />
+          <FunctionImport Name="usp_ListarCurso" ReturnType="Collection(BDCOLEGIOModel.usp_ListarCurso_Result)" />
+          <FunctionImport Name="usp_ListarCursosAsignados" ReturnType="Collection(BDCOLEGIOModel.usp_ListarCursosAsignados_Result)" />
+          <FunctionImport Name="usp_ListarDocente" ReturnType="Collection(BDCOLEGIOModel.usp_ListarDocente_Result)" />
+          <FunctionImport Name="usp_ListarDocenteCurso" ReturnType="Collection(BDCOLEGIOModel.usp_ListarDocenteCurso_Result)" />
+          <FunctionImport Name="usp_ListarGradoSeccion" ReturnType="Collection(BDCOLEGIOModel.usp_ListarGradoSeccion_Result)" />
+          <FunctionImport Name="usp_ListarHorario" ReturnType="Collection(BDCOLEGIOModel.usp_ListarHorario_Result)" />
+          <FunctionImport Name="usp_ListarNivel" ReturnType="Collection(BDCOLEGIOModel.usp_ListarNivel_Result)" />
+          <FunctionImport Name="usp_ListarNivelDetalle" ReturnType="Collection(BDCOLEGIOModel.usp_ListarNivelDetalle_Result)" />
+          <FunctionImport Name="usp_ListarPeriodo" ReturnType="Collection(BDCOLEGIOModel.usp_ListarPeriodo_Result)" />
+          <FunctionImport Name="usp_LoginUsuario">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ModificarRol">
+            <Parameter Name="IdRol" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ModificarUsuario">
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="IdRol" Mode="In" Type="Int32" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+            <Parameter Name="DescripcionReferencia" Mode="In" Type="String" />
+            <Parameter Name="IdReferencia" Mode="In" Type="Int32" />
+            <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ObtenerClalificacion" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerClalificacion_Result)">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="IdAlumno" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ObtenerCurricula" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerCurricula_Result)">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ObtenerDetalleUsuario" ReturnType="Collection(String)">
+          <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ObtenerMatricula" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerMatricula_Result)" />
+          <FunctionImport Name="usp_ObtenerPermisos" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerPermisos_Result)">
+          <Parameter Name="IdRol" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ObtenerRoles" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerRoles_Result)" />
+          <FunctionImport Name="usp_ObtenerUsuario" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerUsuario_Result)" />
+          <FunctionImport Name="usp_RegistrarAlumno">
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarCalificacion">
+            <Parameter Name="xml" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarCurricula">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarCurso">
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Nivel" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarDocente">
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="GradoEstudio" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarDocenteCurso">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarGradoSeccion">
+            <Parameter Name="DescripcionGrado" Mode="In" Type="String" />
+            <Parameter Name="DescripcionSeccion" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarHorario">
+            <Parameter Name="IdNivel" Mode="In" Type="Int32" />
+            <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="DiaSemana" Mode="In" Type="String" />
+            <Parameter Name="HoraInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="HoraFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarMatricula">
+            <Parameter Name="xml" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarNivel">
+            <Parameter Name="IdPeriodo" Mode="In" Type="Int32" />
+            <Parameter Name="DescripcionNivel" Mode="In" Type="String" />
+            <Parameter Name="DescripcionTurno" Mode="In" Type="String" />
+            <Parameter Name="HoraInicio" Mode="In" Type="Time" />
+            <Parameter Name="HoraFin" Mode="In" Type="Time" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarNivelDetalle">
+            <Parameter Name="xml" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarPeriodo">
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarRol">
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarUsuario">
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="IdRol" Mode="In" Type="Int32" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+            <Parameter Name="DescripcionReferencia" Mode="In" Type="String" />
+            <Parameter Name="IdReferencia" Mode="In" Type="Int32" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarVacantes">
+            <Parameter Name="xml" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ReporteAlumno" ReturnType="Collection(BDCOLEGIOModel.usp_ReporteAlumno_Result)">
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ReporteMatricula" ReturnType="Collection(BDCOLEGIOModel.usp_ReporteMatricula_Result)">
+            <Parameter Name="CodigoMatricula" Mode="In" Type="String" />
+            <Parameter Name="SituacionMatricula" Mode="In" Type="String" />
+            <Parameter Name="CodigoAlumno" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Periodo" Mode="In" Type="String" />
+            <Parameter Name="NivelAcademico" Mode="In" Type="String" />
+            <Parameter Name="GradoSeccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ActulizarDocente">
+            <Parameter Name="id_docente" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EliminarDocente">
+          <Parameter Name="codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertarAlumno">
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertarDocente">
+            <Parameter Name="valorCodigo" Mode="In" Type="Int32" />
+            <Parameter Name="codigo" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="gradoEstudio" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="fechaRegistro" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="get_top_alumnos" ReturnType="Collection(BDCOLEGIOModel.get_top_alumnos_Result)" >
+          <Parameter Name="maximo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="set_curso_docente">
+            <Parameter Name="idcurso" Mode="In" Type="Int32" />
+            <Parameter Name="iddocente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="set_imagen_curso">
+            <Parameter Name="imagen" Mode="In" Type="Binary" />
+            <Parameter Name="idcurso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="login_usuario" ReturnType="Collection(BDCOLEGIOModel.login_usuario_Result)">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="clave" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroAlumno" ReturnType="Collection(BDCOLEGIOModel.sp_filtroAlumno_Result)">
+          <Parameter Name="apellidos" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroDocente" ReturnType="Collection(BDCOLEGIOModel.sp_filtroDocente_Result)">
+          <Parameter Name="apellidos" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Distrito" EntityType="BDCOLEGIOModel.Distrito" />
+          <AssociationSet Name="fk_distrito" Association="BDCOLEGIOModel.fk_distrito">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_distritoDoce" Association="BDCOLEGIOModel.fk_distritoDoce">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <FunctionImport Name="sp_ListarDistritos" ReturnType="Collection(BDCOLEGIOModel.sp_ListarDistritos_Result)" />
+          <FunctionImport Name="usp_ConsultarUsuario" ReturnType="Collection(BDCOLEGIOModel.usp_ConsultarUsuario_Result)">
+          <Parameter Name="Login_Usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="get_rol" ReturnType="Collection(Int32)">
+            <Parameter Name="LoginUsuario" Mode="In" Type="String" />
+            <Parameter Name="LoginClave" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Notas" EntityType="BDCOLEGIOModel.Notas" />
+          <AssociationSet Name="IdAlumno" Association="BDCOLEGIOModel.IdAlumno">
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <FunctionImport Name="usp_EliminarCurso">
+          <Parameter Name="IdCurso" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="GRADO" EntityType="BDCOLEGIOModel.GRADO" />
+          <EntitySet Name="PERIODO" EntityType="BDCOLEGIOModel.PERIODO" />
+          <AssociationSet Name="FK_IDPeriodo" Association="BDCOLEGIOModel.FK_IDPeriodo">
+            <End Role="PERIODO" EntitySet="PERIODO" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <FunctionImport Name="get_notas" ReturnType="Collection(BDCOLEGIOModel.get_notas_Result2)">
+            <Parameter Name="IDCurso" Mode="In" Type="Int32" />
+            <Parameter Name="IDAlumno" Mode="In" Type="Int32" />
+            <Parameter Name="IDPeriodo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarNombresDocentes" ReturnType="Collection(String)" />
+          <EntitySet Name="NIVEL" EntityType="BDCOLEGIOModel.NIVEL" />
+          <EntitySet Name="CURSO" EntityType="BDCOLEGIOModel.CURSO" />
+          <AssociationSet Name="FK__ALUMNO__Curso__607251E5" Association="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__IdCurso__6166761E" Association="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notas__IdCurso__55BFB948" Association="BDCOLEGIOModel.FK__Notas__IdCurso__55BFB948">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IDNivel" Association="BDCOLEGIOModel.FK_IDNivel">
+            <End Role="NIVEL" EntitySet="NIVEL" />
+            <End Role="CURSO" EntitySet="CURSO" />
+          </AssociationSet>
+          <FunctionImport Name="usp_DetalleCursoNivel" ReturnType="Collection(BDCOLEGIOModel.usp_DetalleCursoNivel_Result1)">
+            <Parameter Name="IDCurso" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_ActualizarPermisos_Result">
+          <Property Type="Int32" Name="idpermisos" Nullable="true" />
+          <Property Type="Boolean" Name="activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarAlumno_Result">
+          <Property Type="Int32" Name="IdAlumno" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Curso" Nullable="true" />
+          <Property Type="Int32" Name="Nota" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarCurso_Result">
+          <Property Type="Int32" Name="IdCurso" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarCursosAsignados_Result">
+          <Property Type="Int32" Name="IdNivelDetalleCurso" Nullable="false" />
+          <Property Type="Int32" Name="IdNivelDetalle" Nullable="false" />
+          <Property Type="Int32" Name="IdNivel" Nullable="false" />
+          <Property Type="String" Name="DescripcionNivel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionTurno" Nullable="true" MaxLength="100" />
+          <Property Type="Time" Name="HoraInicio" Nullable="true" />
+          <Property Type="Time" Name="HoraFin" Nullable="true" />
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="false" />
+          <Property Type="String" Name="DescripcionGrado" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionSeccion" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdCurso" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="CursoActivo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarDocente_Result">
+          <Property Type="Int32" Name="IdDocente" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GradoEstudio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NumeroTelefono" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdCurso" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarDocenteCurso_Result">
+          <Property Type="Int32" Name="IdDocenteCurso" Nullable="false" />
+          <Property Type="Int32" Name="IdNivel" Nullable="false" />
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="false" />
+          <Property Type="Int32" Name="IdDocente" Nullable="false" />
+          <Property Type="Int32" Name="IdCurso" Nullable="false" />
+          <Property Type="String" Name="CodigoDocente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreDocente" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApellidoDocente" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionNivel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionGrado" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionSeccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionCurso" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarGradoSeccion_Result">
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="false" />
+          <Property Type="String" Name="DescripcionGrado" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionSeccion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarHorario_Result">
+          <Property Type="Int32" Name="IdHorario" Nullable="false" />
+          <Property Type="Int32" Name="IdCurso" Nullable="true" />
+          <Property Type="Int32" Name="IdNivel" Nullable="true" />
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="true" />
+          <Property Type="String" Name="DiaSemana" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCurso" Nullable="true" MaxLength="100" />
+          <Property Type="Time" Name="HoraInicio" Nullable="true" />
+          <Property Type="Time" Name="HoraFin" Nullable="true" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarNivel_Result">
+          <Property Type="Int32" Name="IdNivel" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="true" />
+          <Property Type="String" Name="DescripcionPeriodo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescripcionNivel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionTurno" Nullable="true" MaxLength="100" />
+          <Property Type="Time" Name="HoraInicio" Nullable="true" />
+          <Property Type="Time" Name="HoraFin" Nullable="true" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarNivelDetalle_Result">
+          <Property Type="Int32" Name="IdNivelDetalle" Nullable="false" />
+          <Property Type="Int32" Name="IdNivel" Nullable="false" />
+          <Property Type="String" Name="DescripcionNivel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionTurno" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="false" />
+          <Property Type="String" Name="DescripcionGrado" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DescripcionSeccion" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="TotalVacantes" Nullable="true" />
+          <Property Type="Int32" Name="VacantesDisponibles" Nullable="true" />
+          <Property Type="Int32" Name="VacantesOcupadas" Nullable="true" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarPeriodo_Result">
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ObtenerClalificacion_Result">
+          <Property Type="Int32" Name="IdNivel" Nullable="true" />
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="true" />
+          <Property Type="Int32" Name="IdCurso" Nullable="true" />
+          <Property Type="Int32" Name="IdAlumno" Nullable="true" />
+          <Property Type="Int32" Name="IdCurricula" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Nota" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ObtenerCurricula_Result">
+          <Property Type="Int32" Name="IdCurricula" Nullable="false" />
+          <Property Type="Int32" Name="IdDocenteNivelDetalleCurso" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ObtenerMatricula_Result">
+          <Property Type="Int32" Name="IdMatricula" Nullable="false" />
+          <Property Type="Int32" Name="IdNivel" Nullable="true" />
+          <Property Type="Int32" Name="IdGradoSeccion" Nullable="true" />
+          <Property Type="Int32" Name="IdAlumno" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ObtenerPermisos_Result">
+          <Property Type="Int32" Name="IdPermisos" Nullable="false" />
+          <Property Type="String" Name="Menu" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="SubMenu" Nullable="true" MaxLength="60" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ObtenerRoles_Result">
+          <Property Type="Int32" Name="IdRol" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="60" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ObtenerUsuario_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LoginUsuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LoginClave" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdRol" Nullable="true" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="String" Name="DescripcionReferencia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescripcionRol" Nullable="true" MaxLength="60" />
+          <Property Type="Boolean" Name="Activo1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ReporteAlumno_Result">
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Documento_Identidad" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Fecha_Nacimiento" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nivel_Academico" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Turno" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Grado" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Seccion" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ReporteMatricula_Result">
+          <Property Type="String" Name="Codigo_Matricula" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Situacion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Repitente" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="Nivel_Academico" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Turno_Nivel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Grado" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Seccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Codigo_alumno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Documento_identidad_alumno" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="get_top_alumnos_Result">
+          <Property Type="Int32" Name="IdAlumno" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="Int32" Name="Curso" Nullable="true" />
+          <Property Type="Int32" Name="Nota" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="login_usuario_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdRol" Nullable="true" />
+          <Property Type="String" Name="LoginUsuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LoginClave" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescripcionReferencia" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdReferencia" Nullable="true" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroAlumno_Result">
+          <Property Type="Int32" Name="IdAlumno" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="Int32" Name="Curso" Nullable="true" />
+          <Property Type="Int32" Name="Nota" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroDocente_Result">
+          <Property Type="Int32" Name="IdDocente" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GradoEstudio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NumeroTelefono" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="Int32" Name="IdCurso" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="idDistrito" />
+          </Key>
+          <Property Name="idDistrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ALUMNO" Relationship="BDCOLEGIOModel.fk_distrito" FromRole="Distrito" ToRole="ALUMNO" />
+          <NavigationProperty Name="DOCENTE" Relationship="BDCOLEGIOModel.fk_distritoDoce" FromRole="Distrito" ToRole="DOCENTE" />
+        </EntityType>
+        <Association Name="fk_distrito">
+          <End Type="BDCOLEGIOModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.ALUMNO" Role="ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_distritoDoce">
+          <End Type="BDCOLEGIOModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.DOCENTE" Role="DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_ListarDistritos_Result">
+          <Property Type="Int32" Name="idDistrito" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="get_notas_Result">
+          <Property Type="Int32" Name="Nota1" Nullable="false" />
+          <Property Type="Int32" Name="Nota2" Nullable="false" />
+          <Property Type="Int32" Name="Nota3" Nullable="false" />
+          <Property Type="Int32" Name="Final" Nullable="false" />
+          <Property Type="Decimal" Name="Promedio" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarUsuario_Result">
+          <Property Type="String" Name="LoginUsuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LoginClave" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdRol" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Notas">
+          <Key>
+            <PropertyRef Name="IDNota" />
+          </Key>
+          <Property Name="IDNota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nota1" Type="Int32" Nullable="false" />
+          <Property Name="Nota2" Type="Int32" Nullable="false" />
+          <Property Name="Nota3" Type="Int32" Nullable="false" />
+          <Property Name="Final" Type="Int32" Nullable="false" />
+          <Property Name="Retroalimentacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdAlumno" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUMNO" Relationship="BDCOLEGIOModel.IdAlumno" FromRole="Notas" ToRole="ALUMNO" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Docente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IDPeriodo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERIODO" Relationship="BDCOLEGIOModel.FK_IDPeriodo" FromRole="Notas" ToRole="PERIODO" />
+          <NavigationProperty Name="CURSO" Relationship="BDCOLEGIOModel.FK__Notas__IdCurso__55BFB948" FromRole="Notas" ToRole="CURSO" />
+        </EntityType>
+        <Association Name="IdAlumno">
+          <End Type="BDCOLEGIOModel.ALUMNO" Role="ALUMNO" Multiplicity="1" />
+          <End Type="BDCOLEGIOModel.Notas" Role="Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUMNO">
+              <PropertyRef Name="IdAlumno" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="IdAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="get_notas1_Result">
+          <Property Type="Int32" Name="Nota1" Nullable="false" />
+          <Property Type="Int32" Name="Nota2" Nullable="false" />
+          <Property Type="Int32" Name="Nota3" Nullable="false" />
+          <Property Type="Int32" Name="Final" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="get_notas_Result1">
+          <Property Type="Int32" Name="Nota1" Nullable="false" />
+          <Property Type="Int32" Name="Nota2" Nullable="false" />
+          <Property Type="Int32" Name="Nota3" Nullable="false" />
+          <Property Type="Int32" Name="Final" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="GRADO">
+          <Key>
+            <PropertyRef Name="IDGrado" />
+          </Key>
+          <Property Name="IDGrado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesGrado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PERIODO">
+          <Key>
+            <PropertyRef Name="IDPeriodo" />
+          </Key>
+          <Property Name="IDPeriodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesPeriodo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Notas" Relationship="BDCOLEGIOModel.FK_IDPeriodo" FromRole="PERIODO" ToRole="Notas" />
+        </EntityType>
+        <Association Name="FK_IDPeriodo">
+          <End Type="BDCOLEGIOModel.PERIODO" Role="PERIODO" Multiplicity="1" />
+          <End Type="BDCOLEGIOModel.Notas" Role="Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERIODO">
+              <PropertyRef Name="IDPeriodo" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="IDPeriodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="get_notas_Result2">
+          <Property Type="Int32" Name="Nota1" Nullable="false" />
+          <Property Type="Int32" Name="Nota2" Nullable="false" />
+          <Property Type="Int32" Name="Nota3" Nullable="false" />
+          <Property Type="Int32" Name="Final" Nullable="false" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Docente" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="NIVEL">
+          <Key>
+            <PropertyRef Name="Nivel1" />
+          </Key>
+          <Property Name="Nivel1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desNivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CURSO" Relationship="BDCOLEGIOModel.FK_IDNivel" FromRole="NIVEL" ToRole="CURSO" />
+        </EntityType>
+        <EntityType Name="CURSO">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="CODIGO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IDNivel" Type="Int32" />
+          <NavigationProperty Name="ALUMNO" Relationship="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" FromRole="CURSO" ToRole="ALUMNO" />
+          <NavigationProperty Name="DOCENTE" Relationship="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" FromRole="CURSO" ToRole="DOCENTE" />
+          <NavigationProperty Name="Notas" Relationship="BDCOLEGIOModel.FK__Notas__IdCurso__55BFB948" FromRole="CURSO" ToRole="Notas" />
+          <NavigationProperty Name="NIVEL" Relationship="BDCOLEGIOModel.FK_IDNivel" FromRole="CURSO" ToRole="NIVEL" />
+        </EntityType>
+        <Association Name="FK__ALUMNO__Curso__607251E5">
+          <End Type="BDCOLEGIOModel.CURSO" Role="CURSO" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.ALUMNO" Role="ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__IdCurso__6166761E">
+          <End Type="BDCOLEGIOModel.CURSO" Role="CURSO" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.DOCENTE" Role="DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notas__IdCurso__55BFB948">
+          <End Type="BDCOLEGIOModel.CURSO" Role="CURSO" Multiplicity="1" />
+          <End Type="BDCOLEGIOModel.Notas" Role="Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IDNivel">
+          <End Type="BDCOLEGIOModel.NIVEL" Role="NIVEL" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.CURSO" Role="CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIVEL">
+              <PropertyRef Name="Nivel1" />
+            </Principal>
+            <Dependent Role="CURSO">
+              <PropertyRef Name="IDNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="usp_DetalleCursoNivel_Result">
+          <Property Type="Int32" Name="IdCurso" Nullable="false" />
+          <Property Type="String" Name="CODIGO" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="desNivel" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_DetalleCursoNivel_Result1">
+          <Property Type="String" Name="CODIGO" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="desNivel" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDCOLEGIOModelStoreContainer" CdmEntityContainer="BDCOLEGIOEntities">
+          <EntitySetMapping Name="ALUMNO">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
+              <MappingFragment StoreEntitySet="ALUMNO">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCENTE">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
+              <MappingFragment StoreEntitySet="DOCENTE">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+                <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISOS">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.PERMISOS">
+              <MappingFragment StoreEntitySet="PERMISOS">
+                <ScalarProperty Name="IdPermisos" ColumnName="IdPermisos" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdSubMenu" ColumnName="IdSubMenu" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="RolUsuario" ColumnName="RolUsuario" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+                <ScalarProperty Name="LoginClave" ColumnName="LoginClave" />
+                <ScalarProperty Name="DescripcionReferencia" ColumnName="DescripcionReferencia" />
+                <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BDCOLEGIOModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BDCOLEGIOModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BDCOLEGIOModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BDCOLEGIOModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BDCOLEGIOModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BDCOLEGIOModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BDCOLEGIOModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarPermisos" FunctionName="BDCOLEGIOModel.Store.usp_ActualizarPermisos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ActualizarPermisos_Result">
+                <ScalarProperty Name="idpermisos" ColumnName="idpermisos" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AsginarCursos" FunctionName="BDCOLEGIOModel.Store.usp_AsginarCursos" />
+          <FunctionImportMapping FunctionImportName="usp_DetalleDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_DetalleDocenteCurso" />
+          <FunctionImportMapping FunctionImportName="usp_EditarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_EditarAlumno" />
+          <FunctionImportMapping FunctionImportName="usp_EditarCurso" FunctionName="BDCOLEGIOModel.Store.usp_EditarCurso" />
+          <FunctionImportMapping FunctionImportName="usp_EditarDocente" FunctionName="BDCOLEGIOModel.Store.usp_EditarDocente" />
+          <FunctionImportMapping FunctionImportName="usp_EditarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_EditarGradoSeccion" />
+          <FunctionImportMapping FunctionImportName="usp_EditarNivel" FunctionName="BDCOLEGIOModel.Store.usp_EditarNivel" />
+          <FunctionImportMapping FunctionImportName="usp_EditarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_EditarPeriodo" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_EliminarAlumno" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarCurricula" FunctionName="BDCOLEGIOModel.Store.usp_EliminarCurricula" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_EliminarDocenteCurso" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_EliminarGradoSeccion" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarHorario" FunctionName="BDCOLEGIOModel.Store.usp_EliminarHorario" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarNivel" FunctionName="BDCOLEGIOModel.Store.usp_EliminarNivel" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_EliminarPeriodo" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarRol" FunctionName="BDCOLEGIOModel.Store.usp_EliminarRol" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarUsuario" FunctionName="BDCOLEGIOModel.Store.usp_EliminarUsuario" />
+          <FunctionImportMapping FunctionImportName="usp_ListarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_ListarAlumno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarAlumno_Result">
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarCurso" FunctionName="BDCOLEGIOModel.Store.usp_ListarCurso">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarCurso_Result">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarCursosAsignados" FunctionName="BDCOLEGIOModel.Store.usp_ListarCursosAsignados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarCursosAsignados_Result">
+                <ScalarProperty Name="IdNivelDetalleCurso" ColumnName="IdNivelDetalleCurso" />
+                <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+                <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+                <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="CursoActivo" ColumnName="CursoActivo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarDocente" FunctionName="BDCOLEGIOModel.Store.usp_ListarDocente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarDocente_Result">
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_ListarDocenteCurso">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarDocenteCurso_Result">
+                <ScalarProperty Name="IdDocenteCurso" ColumnName="IdDocenteCurso" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="CodigoDocente" ColumnName="CodigoDocente" />
+                <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+                <ScalarProperty Name="ApellidoDocente" ColumnName="ApellidoDocente" />
+                <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+                <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+                <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+                <ScalarProperty Name="DescripcionCurso" ColumnName="DescripcionCurso" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_ListarGradoSeccion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarGradoSeccion_Result">
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+                <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarHorario" FunctionName="BDCOLEGIOModel.Store.usp_ListarHorario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarHorario_Result">
+                <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+                <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarNivel" FunctionName="BDCOLEGIOModel.Store.usp_ListarNivel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarNivel_Result">
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="DescripcionPeriodo" ColumnName="DescripcionPeriodo" />
+                <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+                <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarNivelDetalle" FunctionName="BDCOLEGIOModel.Store.usp_ListarNivelDetalle">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarNivelDetalle_Result">
+                <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+                <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+                <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+                <ScalarProperty Name="TotalVacantes" ColumnName="TotalVacantes" />
+                <ScalarProperty Name="VacantesDisponibles" ColumnName="VacantesDisponibles" />
+                <ScalarProperty Name="VacantesOcupadas" ColumnName="VacantesOcupadas" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_ListarPeriodo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarPeriodo_Result">
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_LoginUsuario" FunctionName="BDCOLEGIOModel.Store.usp_LoginUsuario" />
+          <FunctionImportMapping FunctionImportName="usp_ModificarRol" FunctionName="BDCOLEGIOModel.Store.usp_ModificarRol" />
+          <FunctionImportMapping FunctionImportName="usp_ModificarUsuario" FunctionName="BDCOLEGIOModel.Store.usp_ModificarUsuario" />
+          <FunctionImportMapping FunctionImportName="usp_ObtenerClalificacion" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerClalificacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerClalificacion_Result">
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ObtenerCurricula" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerCurricula">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerCurricula_Result">
+                <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
+                <ScalarProperty Name="IdDocenteNivelDetalleCurso" ColumnName="IdDocenteNivelDetalleCurso" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ObtenerDetalleUsuario" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerDetalleUsuario" />
+          <FunctionImportMapping FunctionImportName="usp_ObtenerMatricula" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerMatricula">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerMatricula_Result">
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ObtenerPermisos" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerPermisos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerPermisos_Result">
+                <ScalarProperty Name="IdPermisos" ColumnName="IdPermisos" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="SubMenu" ColumnName="SubMenu" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ObtenerRoles" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerRoles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerRoles_Result">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ObtenerUsuario" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerUsuario_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+                <ScalarProperty Name="LoginClave" ColumnName="LoginClave" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="DescripcionReferencia" ColumnName="DescripcionReferencia" />
+                <ScalarProperty Name="DescripcionRol" ColumnName="DescripcionRol" />
+                <ScalarProperty Name="Activo1" ColumnName="Activo1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_RegistrarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarAlumno" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarCalificacion" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarCalificacion" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarCurricula" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarCurricula" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarCurso" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarCurso" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarDocente" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarDocente" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarDocenteCurso" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarGradoSeccion" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarHorario" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarHorario" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarMatricula" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarMatricula" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarNivel" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarNivel" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarNivelDetalle" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarNivelDetalle" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarPeriodo" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarRol" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarRol" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarUsuario" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarUsuario" />
+          <FunctionImportMapping FunctionImportName="usp_RegistrarVacantes" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarVacantes" />
+          <FunctionImportMapping FunctionImportName="usp_ReporteAlumno" FunctionName="BDCOLEGIOModel.Store.usp_ReporteAlumno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ReporteAlumno_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Documento_Identidad" ColumnName="Documento Identidad" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha Nacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Nivel_Academico" ColumnName="Nivel Academico" />
+                <ScalarProperty Name="Turno" ColumnName="Turno" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ReporteMatricula" FunctionName="BDCOLEGIOModel.Store.usp_ReporteMatricula">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ReporteMatricula_Result">
+                <ScalarProperty Name="Codigo_Matricula" ColumnName="Codigo Matricula" />
+                <ScalarProperty Name="Situacion" ColumnName="Situacion" />
+                <ScalarProperty Name="Repitente" ColumnName="Repitente" />
+                <ScalarProperty Name="Nivel_Academico" ColumnName="Nivel Academico" />
+                <ScalarProperty Name="Turno_Nivel" ColumnName="Turno Nivel" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+                <ScalarProperty Name="Codigo_alumno" ColumnName="Codigo alumno" />
+                <ScalarProperty Name="Documento_identidad_alumno" ColumnName="Documento identidad alumno" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ActulizarDocente" FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente" />
+          <FunctionImportMapping FunctionImportName="SP_EliminarDocente" FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente" />
+          <FunctionImportMapping FunctionImportName="SP_InsertarDocente" FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente" />
+          <FunctionImportMapping FunctionImportName="get_top_alumnos" FunctionName="BDCOLEGIOModel.Store.get_top_alumnos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.get_top_alumnos_Result">
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="set_curso_docente" FunctionName="BDCOLEGIOModel.Store.set_curso_docente" />
+          <FunctionImportMapping FunctionImportName="set_imagen_curso" FunctionName="BDCOLEGIOModel.Store.set_imagen_curso" />
+          <FunctionImportMapping FunctionImportName="login_usuario" FunctionName="BDCOLEGIOModel.Store.login_usuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.login_usuario_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+                <ScalarProperty Name="LoginClave" ColumnName="LoginClave" />
+                <ScalarProperty Name="DescripcionReferencia" ColumnName="DescripcionReferencia" />
+                <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroAlumno" FunctionName="BDCOLEGIOModel.Store.sp_filtroAlumno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_filtroAlumno_Result">
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroDocente" FunctionName="BDCOLEGIOModel.Store.sp_filtroDocente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_filtroDocente_Result">
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Distrito">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.Distrito">
+              <MappingFragment StoreEntitySet="Distrito">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ListarDistritos" FunctionName="BDCOLEGIOModel.Store.sp_ListarDistritos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_ListarDistritos_Result">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="get_rol" FunctionName="BDCOLEGIOModel.Store.get_rol" />
+          <EntitySetMapping Name="Notas">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.Notas">
+              <MappingFragment StoreEntitySet="Notas">
+                <ScalarProperty Name="IDPeriodo" ColumnName="IDPeriodo" />
+                <ScalarProperty Name="Usu_Docente" ColumnName="Usu_Docente" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="Retroalimentacion" ColumnName="Retroalimentacion" />
+                <ScalarProperty Name="Final" ColumnName="Final" />
+                <ScalarProperty Name="Nota3" ColumnName="Nota3" />
+                <ScalarProperty Name="Nota2" ColumnName="Nota2" />
+                <ScalarProperty Name="Nota1" ColumnName="Nota1" />
+                <ScalarProperty Name="IDNota" ColumnName="IDNota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_EliminarCurso" FunctionName="BDCOLEGIOModel.Store.usp_EliminarCurso" />
+          <EntitySetMapping Name="GRADO">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.GRADO">
+              <MappingFragment StoreEntitySet="GRADO">
+                <ScalarProperty Name="DesGrado" ColumnName="DesGrado" />
+                <ScalarProperty Name="IDGrado" ColumnName="IDGrado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERIODO">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.PERIODO">
+              <MappingFragment StoreEntitySet="PERIODO">
+                <ScalarProperty Name="DesPeriodo" ColumnName="DesPeriodo" />
+                <ScalarProperty Name="IDPeriodo" ColumnName="IDPeriodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="get_notas" FunctionName="BDCOLEGIOModel.Store.get_notas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.get_notas_Result2">
+                <ScalarProperty Name="Nota1" ColumnName="Nota1" />
+                <ScalarProperty Name="Nota2" ColumnName="Nota2" />
+                <ScalarProperty Name="Nota3" ColumnName="Nota3" />
+                <ScalarProperty Name="Final" ColumnName="Final" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Usu_Docente" ColumnName="Usu_Docente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarNombresDocentes" FunctionName="BDCOLEGIOModel.Store.usp_ListarNombresDocentes" />
+          <EntitySetMapping Name="NIVEL">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.NIVEL">
+              <MappingFragment StoreEntitySet="NIVEL">
+                <ScalarProperty Name="desNivel" ColumnName="desNivel" />
+                <ScalarProperty Name="Nivel1" ColumnName="Nivel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CURSO">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.CURSO">
+              <MappingFragment StoreEntitySet="CURSO">
+                <ScalarProperty Name="IDNivel" ColumnName="IDNivel" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_DetalleCursoNivel" FunctionName="BDCOLEGIOModel.Store.usp_DetalleCursoNivel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_DetalleCursoNivel_Result1">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="desNivel" ColumnName="desNivel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

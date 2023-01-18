@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF-Colegio", "WCF-Colegio\WCF-Colegio.csproj", "{6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWindows_Colegio", "AppWindows_Colegio\AppWindows_Colegio.csproj", "{2D1902E0-F306-42AC-A2C4-B7633BC7A75E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E} = {6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA6EFB5-7AE1-46BD-8146-7219C18ACC2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1902E0-F306-42AC-A2C4-B7633BC7A75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1902E0-F306-42AC-A2C4-B7633BC7A75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1902E0-F306-42AC-A2C4-B7633BC7A75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1902E0-F306-42AC-A2C4-B7633BC7A75E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45EEA1DE-ABFD-4D7E-A7FD-26B4950F712F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D1902E0-F306-42AC-A2C4-B7633BC7A75E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AppWindows_Colegio</RootNamespace>
+    <AssemblyName>AppWindows_Colegio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\clsCredenciales.cs" />
+    <Compile Include="Connected Services\ProxyCurso\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyDocente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyExtra\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan01Docente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan01Docente.designer.cs">
+      <DependentUpon>AlumnoMan01Docente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan01.designer.cs">
+      <DependentUpon>AlumnoMan01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan02.designer.cs">
+      <DependentUpon>AlumnoMan02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\EstadoAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\EstadoAlumno.Designer.cs">
+      <DependentUpon>EstadoAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\EstadoAlumno02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\EstadoAlumno02.Designer.cs">
+      <DependentUpon>EstadoAlumno02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\RegistrarNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\RegistrarNota.designer.cs">
+      <DependentUpon>RegistrarNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\AlumnoMan03.designer.cs">
+      <DependentUpon>AlumnoMan03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyAlumno\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\TopAlumnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\TopAlumnoForm.designer.cs">
+      <DependentUpon>TopAlumnoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAlumno\VerNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAlumno\VerNotas.Designer.cs">
+      <DependentUpon>VerNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\AsignarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\AsignarCurso.Designer.cs">
+      <DependentUpon>AsignarCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\CursoMan01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\CursoMan01.designer.cs">
+      <DependentUpon>CursoMan01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\CursoMan02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\CursoMan02.designer.cs">
+      <DependentUpon>CursoMan02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\CursoMan03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\CursoMan03.designer.cs">
+      <DependentUpon>CursoMan03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\EstadoCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\EstadoCurso.Designer.cs">
+      <DependentUpon>EstadoCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\EstadoCurso02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\EstadoCurso02.Designer.cs">
+      <DependentUpon>EstadoCurso02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsCurso\InfoCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsCurso\InfoCurso.Designer.cs">
+      <DependentUpon>InfoCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDocente\DocenteMan01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDocente\DocenteMan01.designer.cs">
+      <DependentUpon>DocenteMan01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDocente\DocenteMan02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDocente\DocenteMan02.designer.cs">
+      <DependentUpon>DocenteMan02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDocente\DocenteMan03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDocente\DocenteMan03.designer.cs">
+      <DependentUpon>DocenteMan03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDocente\EstadoDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDocente\EstadoDocente.Designer.cs">
+      <DependentUpon>EstadoDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDocente\EstadoDocente02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDocente\EstadoDocente02.Designer.cs">
+      <DependentUpon>EstadoDocente02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Inicio.designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login\frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormsAlumno\AlumnoMan01Docente.resx">
+      <DependentUpon>AlumnoMan01Docente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\AlumnoMan01.resx">
+      <DependentUpon>AlumnoMan01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\AlumnoMan02.resx">
+      <DependentUpon>AlumnoMan02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\EstadoAlumno.resx">
+      <DependentUpon>EstadoAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\EstadoAlumno02.resx">
+      <DependentUpon>EstadoAlumno02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\RegistrarNota.resx">
+      <DependentUpon>RegistrarNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\AlumnoMan03.resx">
+      <DependentUpon>AlumnoMan03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\TopAlumnoForm.resx">
+      <DependentUpon>TopAlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAlumno\VerNotas.resx">
+      <DependentUpon>VerNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\AsignarCurso.resx">
+      <DependentUpon>AsignarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\CursoMan01.resx">
+      <DependentUpon>CursoMan01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\CursoMan02.resx">
+      <DependentUpon>CursoMan02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\CursoMan03.resx">
+      <DependentUpon>CursoMan03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\EstadoCurso.resx">
+      <DependentUpon>EstadoCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\EstadoCurso02.resx">
+      <DependentUpon>EstadoCurso02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsCurso\InfoCurso.resx">
+      <DependentUpon>InfoCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDocente\DocenteMan01.resx">
+      <DependentUpon>DocenteMan01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDocente\DocenteMan02.resx">
+      <DependentUpon>DocenteMan02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDocente\DocenteMan03.resx">
+      <DependentUpon>DocenteMan03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDocente\EstadoDocente.resx">
+      <DependentUpon>EstadoDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDocente\EstadoDocente02.resx">
+      <DependentUpon>EstadoDocente02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Connected Services\ProxyAlumno\AppWindows_Colegio.ProxyAlumno.AlumnoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyAlumno\service.wsdl" />
+    <None Include="Connected Services\ProxyAlumno\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyAlumno\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyAlumno\WCF_Colegio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCurso\AppWindows_Colegio.ProxyCurso.CursoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyCurso\service.wsdl" />
+    <None Include="Connected Services\ProxyCurso\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCurso\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCurso\WCF_Colegio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyDocente\AppWindows_Colegio.ProxyDocente.DocenteBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyDocente\service.wsdl" />
+    <None Include="Connected Services\ProxyDocente\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyDocente\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyDocente\WCF_Colegio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyExtra\AppWindows_Colegio.ProxyExtra.AlumnoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyExtra\AppWindows_Colegio.ProxyExtra.DistritoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyExtra\service.wsdl" />
+    <None Include="Connected Services\ProxyExtra\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyExtra\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyExtra\WCF_Colegio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\AppWindows_Colegio.ProxyUsuario.UsuarioBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\service.wsdl" />
+    <None Include="Connected Services\ProxyUsuario\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\WCF_Colegio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ProxyAlumno\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyCurso\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyDocente\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyExtra\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyUsuario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyAlumno\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyAlumno\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyAlumno\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyCurso\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyCurso\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyCurso\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyDocente\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyDocente\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyDocente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUsuario\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUsuario\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUsuario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyExtra\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyExtra\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyExtra\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-logo-school-with-book-and-star-png-image_3982996.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e1cd883c158462482cfb59819f34490" Name="Diagram1">
+        <EntityTypeShape EntityType="BDCOLEGIOModel.ALUMNO" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.APODERADO" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.CURRICULA" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.CURSO" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.Distrito" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.DOCENTE" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.DOCENTE_NIVELDETALLE_CURSO" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.GRADO_SECCION" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.HORARIO" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.MATRICULA" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.NIVEL" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.NIVEL_DETALLE" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.NIVEL_DETALLE_CURSO" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.Notas" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.PERIODO" Width="1.5" PointX="1.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.PERMISOS" Width="1.5" PointX="13" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.ROL" Width="1.5" PointX="10.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDCOLEGIOModel.USUARIO" Width="1.5" PointX="13" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__MATRICULA__IdAlu__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.fk_distrito" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.IdAlumno" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__MATRICULA__IdApo__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__CURRICULA__IdDoc__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__NIVEL_DET__IdCur__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__Notas__IdCurso__55BFB948" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.fk_distritoDoce" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__DOCENTE_N__IdDoc__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__DOCENTE_N__IdNiv__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__NIVEL_DET__IdGra__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__HORARIO__IdNivel__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__MATRICULA__IdNiv__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__NIVEL__IdPeriodo__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__NIVEL_DET__IdNiv__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__NIVEL_DET__IdNiv__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__PERMISOS__IdRol__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="BDCOLEGIOModel.FK__USUARIO__IdRol__36B12243" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

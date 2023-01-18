@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Colegio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Colegio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AlumnoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fecha_ult_mod" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Mvaract_al" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Mvarape_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarcod_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvardes_periodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvardir_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvardocide_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarfecnac_al" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Mvarfecres_al" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Mvarfinal" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarid_alumno" type="xs:short" />
+      <xs:element minOccurs="0" name="Mvarid_curso" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarid_distrito" type="xs:short" />
+      <xs:element minOccurs="0" name="Mvarid_periodo" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvaridcurso" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarnom_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarnom_distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarnota" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarnota1" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarnota2" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarnota3" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarpromedio" type="xs:double" />
+      <xs:element minOccurs="0" name="Mvarretro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarsex_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarvalorcod_al" type="xs:short" />
+      <xs:element minOccurs="0" name="Usu_ult_mod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlumnoBE" nillable="true" type="tns:AlumnoBE" />
+  <xs:complexType name="ArrayOfAlumnoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlumnoBE" nillable="true" type="tns:AlumnoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlumnoBE" nillable="true" type="tns:ArrayOfAlumnoBE" />
+</xs:schema>
