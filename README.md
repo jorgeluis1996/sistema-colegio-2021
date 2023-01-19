@@ -1,7 +1,7 @@
 # sistema-colegio-2021
 Para correr el programa debemos tener la base de datos con anticipacion ya que iniciaremos sesión y los usuarios estan en la Base de datos
 
-el programa que se utilizo es <img align="left" alt="Jorge LinkedIN" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/800px-Visual_Studio_Icon_2019.svg.png" />  Visual Studio 
+el programa que se utilizo es <img alt="Jorge LinkedIN" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/800px-Visual_Studio_Icon_2019.svg.png" />  Visual Studio 
 
 
 
