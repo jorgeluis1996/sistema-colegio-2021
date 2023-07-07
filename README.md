@@ -1,4 +1,4 @@
-# sistema-colegio-2021
+# sistema-colegio-2022
 Para correr el programa debemos tener la base de datos con anticipacion ya que iniciaremos sesión y los usuarios estan en la Base de datos
 
 el programa que se utilizo es Visual Studio  <img  width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/800px-Visual_Studio_Icon_2019.svg.png" />
@@ -27,3 +27,6 @@ adicionalmente podremos visualizar las notas agregadas
 ![image](https://user-images.githubusercontent.com/84692577/213231688-883affaa-6e0a-4fff-902b-d78213acfce6.png)
 
 
+En la base de datos contamos con los usuarios con roles y privilegios , adicional se ven las demas tablas 
+
+![image](https://github.com/jorgeluis1996/sistema-colegio-2021/assets/84692577/a8401aa7-ecd4-4aa8-b222-40543ef72113)
