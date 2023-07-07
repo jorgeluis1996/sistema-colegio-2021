@@ -29,4 +29,7 @@ adicionalmente podremos visualizar las notas agregadas
 
 En la base de datos contamos con los usuarios con roles y privilegios , adicional se ven las demas tablas 
 
+![image](https://github.com/jorgeluis1996/sistema-colegio-2021/assets/84692577/ab11eb09-db7c-494d-a4c5-d7c88964d49e)
+
+
 ![image](https://github.com/jorgeluis1996/sistema-colegio-2021/assets/84692577/a8401aa7-ecd4-4aa8-b222-40543ef72113)
